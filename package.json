@@ -11,6 +11,9 @@
   "dependencies": {
     "@ai-sdk/openai": "latest",
     "ai": "latest",
+    "convex": "^1.12.1",
+    "convex-helpers": "^0.1.41",
+    "hono": "^4.4.3",
     "next": "latest",
     "openai": "4.47.1",
     "react": "^18",
