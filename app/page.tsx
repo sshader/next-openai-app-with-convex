@@ -1,14 +1,21 @@
-'use client';
+"use client";
 
-import { useChat } from 'ai/react';
+import { useChat } from "ai/react";
+
+const CONVEX_SITE_URL = process.env.NEXT_PUBLIC_CONVEX_URL!.replace(
+  /.cloud$/,
+  ".site"
+);
 
 export default function Chat() {
-  const { messages, input, handleInputChange, handleSubmit } = useChat();
+  const { messages, input, handleInputChange, handleSubmit } = useChat({
+    api: `${CONVEX_SITE_URL}/api/chat`,
+  });
   return (
     <div className="flex flex-col w-full max-w-md py-24 mx-auto stretch">
-      {messages.map(m => (
+      {messages.map((m) => (
         <div key={m.id} className="whitespace-pre-wrap">
-          {m.role === 'user' ? 'User: ' : 'AI: '}
+          {m.role === "user" ? "User: " : "AI: "}
           {m.content}
         </div>
       ))}
